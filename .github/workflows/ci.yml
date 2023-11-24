@@ -18,6 +18,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CONFIG_FILE: folder/mkdocs.yml
-          EXTRA_PACKAGES: build-base mkdocs-material
+          EXTRA_PACKAGES: build-base
           # GITHUB_DOMAIN: github.myenterprise.com
           REQUIREMENTS: folder/requirements.txt
