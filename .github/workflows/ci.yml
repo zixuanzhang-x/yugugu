@@ -1,0 +1,29 @@
+name: ci
+
+on:
+  push:
+    branches:
+      - master  # Or main, depending on your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install mkdocs
+
+    - name: Build and deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        deploy_branch: gh-pages  # Deploy to a branch named gh-pages
+        publish_dir: ./site
